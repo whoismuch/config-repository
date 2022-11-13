@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${POSTGRES_USER:postgres1}
+    url: ${POSTGRES_URL:jdbc:postgresql://sbs_postgres:5432/shop}
+    password: ${POSTGRES_PASSWORD:postgres1}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+
+
+  liquibase:
+    database-change-log-lock-table: databasechangeloglock
+    database-change-log-table: databasechangelog
+    liquibase-schema: public
+    user: ${POSTGRES_USER:postgres1}
+    url: ${POSTGRES_URL:jdbc:postgresql://sbs_postgres:5432/shop}
+    password: ${POSTGRES_PASSWORD:postgres1}
+  main:
+    allow-circular-references: true
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
